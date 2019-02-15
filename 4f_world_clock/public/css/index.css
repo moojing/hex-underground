@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box; }
+
+*:focus {
+  outline: none; }
+
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0; }
+
+.panel {
+  padding: 20px 40px;
+  width: 600px;
+  margin: auto; }
+
+.panel-primary {
+  background-color: #EDF2EF; }
+
+body {
+  background-color: #E5E5E5;
+  text-align: center; }
+
+.bg-black {
+  background-color: #000000;
+  color: white; }
+
+.bg-white {
+  background-color: white;
+  color: black; }
+
+.panel-timezone {
+  width: 600px;
+  margin: auto;
+  font-size: 36px;
+  font-weight: 500; }
+  .panel-timezone h2 {
+    border-top: 5px solid #000000;
+    border-bottom: 5px solid #000000; }
+
+ul {
+  padding: 0;
+  margin: 0; }
+
+li {
+  border: 2px solid #000000;
+  outline-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 10px 40px; }
+  li .country {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    li .country .name {
+      letter-spacing: 2px;
+      font-size: 36px; }
+    li .country .date {
+      text-align: left;
+      font-size: 16px; }
+  li .time {
+    font-size: 72px; }

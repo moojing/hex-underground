@@ -1,0 +1,48 @@
+
+*{
+     box-sizing: border-box;
+}
+
+
+%put-center{
+     position: absolute; 
+         top: 50%; 
+         left: 50%;
+         transform: translate(-50%,-50%); 
+ }
+
+ 
+body{
+     text-align: center; 
+     margin: 0;
+     padding: 0; 
+}
+
+.clearfix{
+     clear: both;
+}
+
+h1,h2,p,span,div{
+     color:$color-primary;
+   }
+
+.uppercase{
+     text-transform: uppercase;
+}
+
+.col-6{
+     width: calc(49% - #{$gutter});
+     display: inline-block;
+}
+
+
+footer{
+     background-color: $color-primary;
+     text-align: right;
+      color: white; 
+     width: 1200px;
+     margin:auto;
+   padding: 10px 15px;
+}
+
+

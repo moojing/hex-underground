@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>9x9</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/common.css">
+  
+</head>
+
+<body>
+   <div class="panel panel-primary" id="panel-outter"> 
+        <div class="card card-air" >
+            <div class="line-group top" >
+                <span class="x">x</span>
+                <span class="line"></span>
+                <span class="x">x</span>
+            </div>
+            <h1 >九九乘法表</h1>
+            <span class="uppercase">Multipulation Chart</span>
+            <div class="line-group bottom" >
+                    <span class="x">x</span>
+                    <span class="line"></span>
+                    <span class="x">x</span>
+                </div>
+        </div>
+        <template id="card">
+                <div class="card card-bending">
+                        <div class="col-6">
+                            <h2 class="number-title" >{{title}}</h2>
+                            
+                        </div>
+                        <div class="col-6">
+                           
+        
+                        </div>
+                </div>
+        </template>
+     
+       
+        
+   </div>
+   <script src="/public/js/jquery.min.js"></script>
+   <script src="/public/js/index.js"></script>
+   
+   <footer > 
+        Copyright @2019 HexSchool. All rights reserved.
+    </footer>
+</body>
+
+</html>

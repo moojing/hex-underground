@@ -1,0 +1,60 @@
+@import "_variables" ;
+@import "_common" ; 
+$color-background:#E5E5E5; 
+$color-primary: #000000; 
+body{
+   background-color: $color-background ;
+   text-align: center; 
+}
+ 
+
+.bg-black{
+   background-color: $color-primary;
+   color:white;
+}
+.bg-white{
+   background-color: white;
+   color:black;
+}
+
+
+
+.panel-timezone{ 
+   width:600px;
+   margin:auto;
+   font-size: 36px;
+   font-weight: 500;
+   h2{
+      border-top: 5px solid $color-primary;
+      border-bottom: 5px solid $color-primary;
+   } 
+}
+ul{
+     padding: 0;
+   margin:0;
+}
+li{
+   border:2px solid $color-primary;
+   outline-style:none;
+   display: flex;
+   justify-content:space-between;
+   align-content:center;
+   padding: 10px 40px;
+   .country{
+      display: flex;
+      flex-direction:column;
+      justify-content:center;
+      .name{
+         letter-spacing: 2px;
+         font-size: 36px; 
+      } 
+      .date{
+        text-align: left;
+         font-size: 16px;
+      }
+   }
+
+   .time{
+      font-size: 72px;
+   }
+}

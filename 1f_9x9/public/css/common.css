@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  text-align: center;
+  width: body-width;
+  margin: 0;
+  padding: 0; }
+
+.clearfix {
+  clear: both; }
+
+ 

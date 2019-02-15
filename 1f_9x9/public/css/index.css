@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0; }
+
+.clearfix {
+  clear: both; }
+
+h1, h2, p, span, div {
+  color: #4CC73C; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.col-6 {
+  width: calc(49% - 20px);
+  display: inline-block; }
+
+footer {
+  background-color: #4CC73C;
+  text-align: right;
+  color: white;
+  width: 1200px;
+  margin: auto;
+  padding: 10px 15px; }
+
+.panel {
+  padding: 20px 40px;
+  width: 1200px;
+  margin: auto; }
+
+.panel-primary {
+  background-color: #EDF2EF; }
+
+.card {
+  width: calc(33.3333% - 40px);
+  height: 380px;
+  margin: 20px;
+  float: left;
+  position: relative; }
+
+.card-bending {
+  background-color: white;
+  border-radius: 80px 0 80px 0;
+  padding: 60px 20px;
+  box-shadow: 5px 10px 20px 10px rgba(0, 0, 0, 0.1); }
+  .card-bending h2.number-title {
+    font-size: 80px;
+    margin: 0;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white; }
+
+.card-air {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center; }
+  .card-air h1 {
+    font-size: 45px;
+    margin-bottom: 0px; }
+  .card-air span {
+    font-size: 18px; }
+
+.line-group {
+  width: calc(100%); }
+  .line-group * {
+    vertical-align: middle; }
+
+.line {
+  width: calc(100% - 80px);
+  height: 2px;
+  display: inline-block;
+  background-color: #4CC73C; }
+
+.top {
+  position: absolute;
+  top: 20px; }
+
+.bottom {
+  position: absolute;
+  bottom: 20px; }
+
+.formula {
+  margin: 10px 0;
+  font-size: 22px; }
