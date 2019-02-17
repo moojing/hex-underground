@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+$color-primary:#FF9D00;
+ 
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+    height: calc(80vh - 300px);
+    background: $color-primary;
+  }
+.text-white{
+    color:white;
+}
+
+.text-black{
+    color:black;
+}
+.bg_orange{
+    background-color: $color-primary;
+    color:white;
+  
+    
+}
+input{
+    font-family: 'Roboto', sans-serif;
+}
+.bg_white{
+    
+    background-color: white;
+    color:$color-primary;
+}
+
+.dib{
+    display: inline-block;
+}
+.db{
+    display: block;
+}
+.df{
+    display: flex;
+}
