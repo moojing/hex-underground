@@ -83,9 +83,9 @@ export default {
     onStartClick(){
       this.currentPage = this.pages[1]
       this.timeReducer()
-      this.getQuizNumber()
+      this.setQuizNumber()
     },
-    getQuizNumber(){
+    setQuizNumber(){
       let digit;
       switch (true){
         case (this.time_remain>=40 && this.time_remain<=60): {
@@ -153,7 +153,7 @@ export default {
          this.addScore(-1) 
       } 
       this.randomOperator()
-      this.getQuizNumber()
+      this.setQuizNumber()
         
       event.target.value=''
       
@@ -177,15 +177,6 @@ export default {
       return  array[Math.floor(Math.random()*array.length)];
       
     },
-    checkAnswer(value){
-       
-      switch (this.operator){
-        case '+': return +value=== (+this.quizNumbers[0]+ +this.quizNumbers[1] )
-        case '-': return +value=== (+this.quizNumbers[0]- +this.quizNumbers[1] )
-        case 'x': return +value=== (+this.quizNumbers[0]* +this.quizNumbers[1] )
-        case '÷': return +value=== (+this.quizNumbers[0]/ +this.quizNumbers[1] )
-      }
-    },
     randomOperator(){
       let order = Math.floor(Math.random()*100) % 4 
       this.operator = this.operatorList[order]
@@ -195,6 +186,15 @@ export default {
       if((score+value) >=0 ) score += value
       score = this.numberFormat(score,3)
       this.score = score
+    },
+    checkAnswer(value){
+       
+      switch (this.operator){
+        case '+': return +value=== (+this.quizNumbers[0]+ +this.quizNumbers[1] )
+        case '-': return +value=== (+this.quizNumbers[0]- +this.quizNumbers[1] )
+        case 'x': return +value=== (+this.quizNumbers[0]* +this.quizNumbers[1] )
+        case '÷': return +value=== (+this.quizNumbers[0]/ +this.quizNumbers[1] )
+      }
     },
     numberFormat(number,digits){
       while((number + '').length<digits) {
@@ -208,10 +208,6 @@ export default {
       
       return this.numberFormat(min,2) + ':' + this.numberFormat(sec,2) 
     },
-    onResetClick(){
-      Object.assign(this.$data, initData());
-      this.currentPage = this.pages[0]
-    },
     timeReducer(){
          let timer =  setInterval(()=>{
           if( this.time_remain>0){
@@ -222,7 +218,11 @@ export default {
           }
         }, 1000)
         return timer
-    }
+    },
+    onResetClick(){
+      Object.assign(this.$data, initData());
+      this.currentPage = this.pages[0]
+    },
     
   }, 
   created(){
