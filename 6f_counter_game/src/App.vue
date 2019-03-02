@@ -85,6 +85,38 @@ export default {
       this.timeReducer()
       this.setQuizNumber()
     },
+    onAnswerInput(event){
+      let value = event.target.value
+      
+      if (typeof parseInt(value) !== 'number') {
+        event.target.value ='' 
+        return 
+      }
+      
+      if (this.checkAnswer(value)) {
+        if(this.time_remain<=20 && this.time_remain>=0){
+          this.addScore(5) 
+        }else{
+          this.addScore(1) 
+        }
+      }else{
+         this.addScore(-1) 
+      } 
+      this.randomOperator()
+      this.setQuizNumber()
+        
+      event.target.value=''
+      
+    },
+    checkAnswer(value){
+       
+      switch (this.operator){
+        case '+': return +value=== (+this.quizNumbers[0]+ +this.quizNumbers[1] )
+        case '-': return +value=== (+this.quizNumbers[0]- +this.quizNumbers[1] )
+        case 'x': return +value=== (+this.quizNumbers[0]* +this.quizNumbers[1] )
+        case '÷': return +value=== (+this.quizNumbers[0]/ +this.quizNumbers[1] )
+      }
+    },
     setQuizNumber(){
       let digit;
       switch (true){
@@ -116,47 +148,13 @@ export default {
         while(this.isPrime(secondNum)) secondNum = this.getDigits(digit); 
         
         let secondFactor = this.getFactors(secondNum,digit)
-        console.log('secondFactor: ', secondFactor);
-
+       
         secondNum = this.getArrayRandomItem(this.getFactors(firstNum,digit))
-        console.log('secondNum: ', secondNum);
-        
-        
-        
+       
       } 
       result = result.concat([firstNum,secondNum]) 
       
       this.quizNumbers = result
-    },
-    getDigits(digits){
-      switch(digits){
-        case 1 : return Math.floor((Math.random() * 10) + 1) ; 
-        case 2 : return Math.floor((Math.random() * 100) + 10) ; 
-        case 3 : return Math.floor((Math.random() * 100) + 100) ; 
-      }
-    },
-    onAnswerInput(event){
-      let value = event.target.value
-      
-      if (typeof parseInt(value) !== 'number') {
-        event.target.value ='' 
-        return 
-      }
-      
-      if (this.checkAnswer(value)) {
-        if(this.time_remain<=20 && this.time_remain>=0){
-          this.addScore(5) 
-        }else{
-          this.addScore(1) 
-        }
-      }else{
-         this.addScore(-1) 
-      } 
-      this.randomOperator()
-      this.setQuizNumber()
-        
-      event.target.value=''
-      
     },
     isPrime(num) {
       for(var i = 2; i < num; i++)
@@ -173,9 +171,15 @@ export default {
       }
         return factors
     }, 
+    getDigits(digits){
+      switch(digits){
+        case 1 : return Math.floor((Math.random() * 10) + 1) ; 
+        case 2 : return Math.floor((Math.random() * 100) + 10) ; 
+        case 3 : return Math.floor((Math.random() * 100) + 100) ; 
+      }
+    },
     getArrayRandomItem(array){
       return  array[Math.floor(Math.random()*array.length)];
-      
     },
     randomOperator(){
       let order = Math.floor(Math.random()*100) % 4 
@@ -186,15 +190,6 @@ export default {
       if((score+value) >=0 ) score += value
       score = this.numberFormat(score,3)
       this.score = score
-    },
-    checkAnswer(value){
-       
-      switch (this.operator){
-        case '+': return +value=== (+this.quizNumbers[0]+ +this.quizNumbers[1] )
-        case '-': return +value=== (+this.quizNumbers[0]- +this.quizNumbers[1] )
-        case 'x': return +value=== (+this.quizNumbers[0]* +this.quizNumbers[1] )
-        case '÷': return +value=== (+this.quizNumbers[0]/ +this.quizNumbers[1] )
-      }
     },
     numberFormat(number,digits){
       while((number + '').length<digits) {

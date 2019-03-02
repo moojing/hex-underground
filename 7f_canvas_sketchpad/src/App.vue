@@ -94,9 +94,6 @@ export default {
       this.resetToolState()
     },
     onSizeMouseDown(){ this.isSizing = true },
-    onCanvasMouseMove(event){
-        // canvasContext.arc(event.offsetX,event.offsetY,this.currentSize,0,2*Math.PI,false)
-    },
     canvasToImage(){
       let url =  this.$refs['sketchpad'].toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");;
       const link = document.createElement('a')
@@ -160,13 +157,6 @@ export default {
     isToolActive(tool){
       return  tool == this.currentTool ? 'active' : ''
     },
-    // isInCanvas(x,y){
-    //   let canvasPosition = this.canvasContext.canvas.getBoundingClientRect()
-    //    return (x >= canvasPosition.left && 
-    //       x <=  canvasPosition.right && 
-    //       y <= canvasPosition.bottom &&
-    //       y >= canvasPosition.top) 
-    // },
     resetCanvas(){
       let canvas = this.canvasContext.canvas
       this.canvasContext.clearRect(0, 0, canvas.width, canvas.height);
