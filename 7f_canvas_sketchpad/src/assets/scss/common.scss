@@ -39,7 +39,53 @@
   }
 
   .btn{
-    
-    .down{}
-    .up{}
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    bottom: 0%; 
+    left: 50%; 
+    transform: translate(-50%,-50%);
+    &:after{
+      display: inline-block; 
+      height: 40px; 
+      width: 40px;
+      line-height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      
+      transform: translate(-50%,-50%);
+      cursor: pointer;
+    }
+    &.down::after{
+      content:"▼";
+    }
+    &.up::after{
+      content:"▲";
+    }
   }
+  .btn-toolbar{
+    position: fixed; 
+    left: 50%; 
+    bottom:100px;
+    transform: translateX(-50%);
+  }
+
+.hideNavBar{
+  top:-60px;
+  & .btn::after{
+    content:"▼";
+    line-height: 55px;
+  }
+}
+.hideToolBar{
+  height: 0;
+  li{display: none;} 
+  & .btn::after{
+    content:"▲";
+    
+  }
+}
+ 
