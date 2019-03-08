@@ -1,0 +1,30 @@
+.btn{
+    width: 100%; 
+    display: inline-block;
+    text-align: center; 
+    cursor: pointer;
+    line-height: 4rem;
+    font-size: 2rem;
+    border-radius: 5px;
+    margin: 20px 0;
+    margin-bottom: 0;
+    
+    &.btn-primary{
+        background-color: $white;
+        color:$color-primary;
+        font-weight: 700;
+        &:hover{
+            background-color: darken($white,5%);
+           } 
+    }
+    &.btn-red{
+        background-color: $color-primary;
+        color:white;
+        max-width: 40rem;
+        width: 100%;
+        &:hover{
+            background-color: darken($color-primary,5%);
+        } 
+    }
+  
+}

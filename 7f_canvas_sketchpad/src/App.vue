@@ -112,7 +112,7 @@ export default {
     },
     onSizeMouseDown(){ this.isSizing = true },
     canvasToImage(){
-      let url =  this.$refs['sketchpad'].toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+      let url =  this.$refs['sketchpad'].toDataURL("image/png", 1.0) 
       const link = document.createElement('a')
       link.innerText = 'Download'
       link.href = url 
@@ -160,7 +160,6 @@ export default {
                        
                       ctx.putImageData(this.tempCanvas,0, 0)                      
                       ctx.rect(tempx, tempy, width, height);
-                      
                     })
                     
                     break;  

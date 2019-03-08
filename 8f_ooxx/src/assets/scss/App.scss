@@ -1,0 +1,205 @@
+@import './variables';
+*{
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+
+}
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    
+}
+a{
+  text-decoration: none;
+  
+}
+@mixin abs-center($transforms...){
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%,-50%) $transforms;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+.bg-black{
+  background-color: black;
+}
+.bg-red{
+  background-color: $color-secondary;
+  height: 100vh ;
+}
+.bg-darkred{
+  background-color: #ED494C;
+}
+.checkerboard{
+  width: 100%;
+  max-width: 40rem;
+  padding: 0 2rem;
+  height: 23rem;
+  margin: auto;
+  color:$white;
+  .section{
+    width: 33.3333%;
+    height: 33.333%;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    .text{
+      font-size: 3.7rem;
+    } 
+
+  }
+}
+.circle,.cross{
+  width: 5rem; 
+  height: 5rem; 
+  position: relative;
+  display: inline-block;
+}
+$circle-edge-border:0.2rem;
+.circle{
+  border-radius: 50%;
+ 
+  &.circle-solid,&.circle-edge{
+    &::before{
+      content:""; 
+      display: inline-block; 
+      
+      border-radius: 50%;
+      width: 4.3rem; 
+      height: 4.3rem;  
+      @include abs-center;
+    }
+    
+      &.circle-red{
+        background-color: $color-primary;
+        &:before{
+          background-color: black;
+        }
+      } 
+      &.circle-black{
+        background-color: black;
+        &:before{
+          background-color: $color-primary;
+        }
+      } 
+      &.circle-white{
+        background-color: $white;
+        &:before{ 
+          background-color: $color-primary;
+           
+        }
+      }
+    
+    &.circle-edge{
+      width: 5.5rem; 
+      height: 5.5rem;  
+      &.circle-red{
+        background-color: black;
+        border: $circle-edge-border solid $color-primary; 
+        &:before{ 
+          background-color: black;
+          border: $circle-edge-border solid $color-primary; 
+        }
+      }
+      &.circle-black{
+        background-color: $color-primary;
+        border: $circle-edge-border solid black; 
+        &:before{ 
+          background-color: $color-primary;
+          border: $circle-edge-border solid black; 
+        }
+      }
+     
+      
+      &:before{
+        width: 3.9rem; 
+        height: 3.9rem;  
+        
+      } 
+    } 
+  } 
+ 
+}
+
+$cross-solid-border: 9px;
+$cross-solid-length:5rem;
+.cross{
+   &.cross-solid::before,&.cross-solid::after{
+     content:"";
+     display: inline-block; 
+     @include abs-center(rotate(45deg));
+     height: $cross-solid-border;     
+     width:$cross-solid-length;
+     
+   }
+   &.cross-solid{
+    &.cross-red{
+      &:before,&:after{
+       background-color: $color-primary;
+      }
+    }
+    &.cross-black{
+      &:before,&:after{
+       background-color: black;
+      }
+    }
+    &.cross-white{
+      &:before,&:after{
+       background-color: white;
+      }
+    }
+   }
+   &.cross-solid::after{
+    display: inline-block; 
+    transform: translate(-50%, -50%) rotate(135deg);
+   }
+
+   &.cross-edge{
+      
+      .edge__outter,.edge__inner{
+        &::before,&::after{
+          
+          content:"";
+          display: inline-block; 
+         
+          height: 5px;
+        } 
+       
+        &::before{
+          @include abs-center(rotate(135deg));   
+        } 
+        &::after{
+          @include abs-center(rotate(45deg));  
+        } 
+      }
+      $outer-width:15px;
+      $inner-width:7px; 
+      $border-width : calc(#{$outer-width} - #{$inner-width});
+      .edge__outter{
+        &::before,&::after{
+          background-color: $white;
+          width: calc(100% - 1px);
+          height: $outer-width;
+          width: 100%; 
+        }
+
+      } 
+      .edge__inner{
+        &::before,&::after{
+          background-color:black;
+          height: $inner-width;
+          width: calc(100% - #{$border-width}); 
+        }
+      } 
+   }
+}
+
+
+@import './buttons';
+@import './texts';  
+@import './responsive';
