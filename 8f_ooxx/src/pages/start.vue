@@ -82,4 +82,11 @@ export default {
     height: 100vh ;
     padding-top: 100px;
   }
+  .text{
+          font-size: 3.7rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
 </style>

@@ -17,7 +17,7 @@
                    <div class="cross"></div>
                </div>
            </div>
-           <router-link to="/start" class="btn btn-red"> RESTART</router-link>
+           <router-link to="/" class="btn btn-red"> RESTART</router-link>
     </div>
 </template>
 

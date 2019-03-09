@@ -1,13 +1,11 @@
 import VueRouter from 'vue-router'
 import Start from '@/pages/start' 
-import Home from '@/pages/home' 
 import Game from '@/pages/game' 
 import Result from '@/pages/result' 
 
 const router = new VueRouter({
     routes: [
-        { path: '/', component: Home },
-        { path: '/start', component: Start },
+        { path: '/', component: Start },
         { path: '/game', component: Game },
         { path: '/result/:winner', 
           props:true,

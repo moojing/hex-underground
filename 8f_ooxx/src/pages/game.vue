@@ -23,7 +23,7 @@
              </div>
            
                
-            <router-link to="start" class="btn btn-red"> RESTART</router-link>
+            <router-link to="/" class="btn btn-red"> RESTART</router-link>
               
             </div>
         </div>
@@ -61,24 +61,20 @@ export default {
                for(let x=0; x<status[y].length; x++ ){
                    let sumOfCol = this.getSumOfColumn(x,y) 
                    let sumOfRow = this.getSumOfRow(x,y) 
-                   if(  
-                      this.isRowAllNumber(x,y) && 
-                      sumOfRow=== 0||sumOfRow=== 3){
-                      this.setScore()  
-                      this.goResultPage(this.currentPlayer)
-                   }else if (
-                        this.isColumnAllNumber(x,y) && 
-                       sumOfCol === 0||sumOfCol === 3){
-                        this.setScore()  
-                        this.goResultPage(this.currentPlayer)
-                    }else if(
+                   if(
+                        (   this.isRowAllNumber(x,y) && 
+                            sumOfRow=== 0||sumOfRow=== 3
+                        )||(
+                            this.isColumnAllNumber(x,y) && 
+                            sumOfCol === 0||sumOfCol === 3
+                        )||(
                            this.getSumOfNegativeSlash(x,y)===0 || 
                            this.getSumOfNegativeSlash(x,y)===3 || 
                            this.getSumOfPositiveSlash(x,y)===0 || 
-                           this.getSumOfPositiveSlash(x,y)===3 )
-                           {
-                           this.setScore()  
-                           this.goResultPage(this.currentPlayer)
+                           this.getSumOfPositiveSlash(x,y)===3
+                        )){
+                      this.setScore()  
+                      this.goResultPage(this.currentPlayer)
                     }
                }
            }
@@ -107,6 +103,9 @@ export default {
             })
             if( result.length===0) this.$router.push('/result/-1')
         }, 
+         goResultPage(winner){
+            this.$router.push('/result/'+winner)
+        },
         getSumOfNegativeSlash(x,y){
             let status = this.gameStatus
             if(x!==0 || y!==0 ) return 
@@ -116,9 +115,7 @@ export default {
                         
             return   status[y][x]+ status[y+1][x+1]+status[y+2][x+2]
         },
-        goResultPage(winner){
-            this.$router.push('/result/'+winner)
-        },
+       
         getSumOfPositiveSlash(x,y){
             let status = this.gameStatus
             
@@ -133,8 +130,7 @@ export default {
         getSumOfColumn(x,y){
             let status = this.gameStatus
             if(y!==0 ) return 
-            return   status[y][x]+status[y+1][x]+status[y+2][x] 
-                        
+            return   status[y][x]+status[y+1][x]+status[y+2][x]             
         },
         getSumOfRow(x,y){
             let status = this.gameStatus
